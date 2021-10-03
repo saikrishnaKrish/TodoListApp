@@ -1,17 +1,13 @@
+import API from '../Service/data'
+
 const Reducer = (state, action) => {
   switch (action.type) {
     case "Remove_TASK":
       console.log("Remove_TASK here");
-
       return {
         taskList: state.taskList.filter((tasks) => {
           return tasks.id !== action.payload;
         }),
-      };
-    case "SET_TODOS":
-      return {
-        ...state,
-        posts: action.payload,
       };
     case "ADD_TASK":
       console.log("############Add task#########");
@@ -30,11 +26,6 @@ const Reducer = (state, action) => {
       return {
         ...state,
         taskList: updatedTasks,
-      };
-    case "SET_ERROR":
-      return {
-        ...state,
-        error: action.payload,
       };
     default:
       return state;

@@ -1,5 +1,9 @@
 import React, { createContext, useReducer } from "react";
 import AppReducer from "./AppReducer";
+import axios from 'axios';
+
+
+import BASE_URL from '../Service/data'
 
 //initial state
 const initialState = {
