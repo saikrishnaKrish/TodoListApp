@@ -8,8 +8,8 @@ import EditTodo from './Components/EditTodo';
 import CreateTodo from './Components/CreateTodo';
 import DeleteTodo from './Components/DeleteTodo';
 
-import { DisplayTodoList } from './Pages/DisplayTodoList';
-
+import  DisplayTodoList  from './Pages/DisplayTodoList';
+import CreateTodoPage from './Pages/CreateTodoPage'
 
 //GlobalProvider
 import { GlobalProvider } from './Context/GlobalState';
@@ -23,7 +23,7 @@ function App() {
       <header className="text-center"><h5>React Todo Application</h5></header>
       <Switch>
         <Route exact path="/" component={DisplayTodoList}/>
-        <Route path="/create" component={CreateTodo}/>
+        <Route path="/create" component={CreateTodoPage}/>
         <Route path="/edit/:id" component={EditTodo}/>
         <Route path="/delete:id" component={DeleteTodo}/>
       </Switch>

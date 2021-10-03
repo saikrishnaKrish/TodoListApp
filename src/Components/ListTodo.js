@@ -7,7 +7,7 @@ import { useState } from 'react/cjs/react.development';
 
 const ListTodo=()=>{
   const {taskList,removeTask} = useContext(GlobalContext);
-  const [selected,setSelected]=useState('incomplete');
+  const [selected,setSelected]=useState('inprogress');
 
 
 
@@ -17,12 +17,19 @@ const ListTodo=()=>{
    (<ListGroup className="mt-4">
   {taskList.map((task)=>(
     (task.todoStatus ===selected)&&(
-          <ListGroupItem className="d-flex" key={task.id}>
-          <div>{task.todoTitle}</div>
-          &nbsp;&nbsp;
-          <div>{task.todoStatus}</div>
+          <ListGroupItem className="" key={task.id}>
+            
+          <div>
+            Task: &nbsp;&nbsp;
+            {task.todoTitle}
+            </div>
+  
+          <div>
+            Status: &nbsp;&nbsp;
+            {task.todoStatus}
+          </div>
 
-          <div style={{marginLeft:"auto"}}>
+          <div style={{float:"right"}}>
            <Link to={`/edit/${task.id}`} className="btn btn-warning">Edit</Link>
         &nbsp;   <Button onClick={()=>removeTask(task.id)}>Delete</Button>
          </div>         
@@ -36,26 +43,14 @@ const ListTodo=()=>{
     return (
       <>
         <div onChange={(e)=>setSelected(e.target.value)}>
-            <label>InComplete</label>
-            <Input type="radio" name="status" value="incomplete" defaultChecked/>
+            <label>inprogress</label>
+            <Input type="radio" name="status" value="inprogress" defaultChecked/>
             <label>Completed</label>
             <Input type="radio" name="status"value="completed"/>
         </div>
 
       {DisplayTaskList()}
 
-       {/* <ListGroup className="mt-4">
-         {taskList.map((task)=>(
-                 <ListGroupItem className="d-flex" key={task.id}>
-                 <div>{task.todoTitle}</div>
-                 <div style={{marginLeft:"auto"}}>
-                  <Link to={`/edit/${task.id}`} className="btn btn-warning">Edit</Link>
-               &nbsp;   <Button onClick={()=>removeTask(task.id)}>Delete</Button>
-                </div>         
-              </ListGroupItem>
-         ))}
-     
-       </ListGroup> */}
    </> )
 }
 export default ListTodo

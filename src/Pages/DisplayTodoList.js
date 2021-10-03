@@ -3,7 +3,7 @@ import Heading from '../Components/Heading';
 import ListTodo from '../Components/ListTodo';
 
 
-export const DisplayTodoList = () => {
+function DisplayTodoList() {
     return (
         <div>
             <Heading/>
@@ -13,3 +13,4 @@ export const DisplayTodoList = () => {
         </div>
     )
 }
+export default DisplayTodoList;
