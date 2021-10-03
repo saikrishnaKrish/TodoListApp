@@ -44,7 +44,7 @@ const EditTodo = (props) => {
         <h3>Edit Todo</h3>
         <br />
         <br />
-        {console.log(selectedTask)}
+  
         <Form onSubmit={SubmitTodo}>
           <FormGroup>
             <div className="form-group">
@@ -59,6 +59,7 @@ const EditTodo = (props) => {
               />
             </div>
           </FormGroup>
+          <br/>
           <FormGroup>
             <div className="form-group">
               <Label htmlFor="forGrouptExampleInput">Description</Label>
@@ -71,6 +72,7 @@ const EditTodo = (props) => {
               />
             </div>
           </FormGroup>
+          <br/>
           <FormGroup>
             <div className="form-group">
               <Label htmlFor="time">Choose Time:</Label>
@@ -83,24 +85,27 @@ const EditTodo = (props) => {
               />
             </div>
           </FormGroup>
+          <br/>
           <FormGroup>
             <div className="form-group">
               <Label htmlFor="todoStatus">Select Status</Label>
+              &nbsp;&nbsp;
               <select
                 id="todoStatus"
                 name="todoStatus"
                 value={selectedTask.todoStatus}
                 onChange={updateTask}
               >
-                <option value="incomplete">InComplete</option>
+                <option value="inprogress">inprogress</option>
                 <option value="completed">Completed</option>
               </select>
             </div>
           </FormGroup>
-
+          &nbsp;&nbsp;
+          <br/>
           <button type="submit" className="btn btn-primary">
             Edit Todo
-          </button>
+          </button>&nbsp;&nbsp;
           <Link to="/">
             <button type="button" className="btn btn-danger">
               Cancel

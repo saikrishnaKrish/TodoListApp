@@ -10,7 +10,7 @@ const CreateTodo=()=>{
     const [todoTitle,setTodoTitle] =useState('');
     const [todoDescription,setDescription]=useState('');
     const [todoTime,setTime] =useState(new Date());
-    const [todoStatus,setTodoStatus] = useState('incomplete');
+    const [todoStatus,setTodoStatus] = useState('inprogress');
     
     const {addTask} = useContext(GlobalContext)
     let history = useHistory();
@@ -58,13 +58,14 @@ const SubmitTodo=e=>{
               
                         <Label htmlFor="todoStatus">Select Status</Label>
                         <Input type="select" id="todoStatus" name="todoStatus" value={todoStatus} onChange={(e)=>setTodoStatus(e.target.value)}>
-                        <option value="incomplete">InComplete</option>
+                        <option value="inprogress">inprogress</option>
                         <option value="completed">Completed</option>
                         </Input>
                
                 </FormGroup>
-
-                <button type="submit" className="btn btn-primary">Add Todo</button>
+                &nbsp;&nbsp;
+                <br/>
+                <button type="submit" className="btn btn-primary">Add Todo</button> &nbsp;&nbsp;
                 <Link to="/">
                     <button type="button" className="btn btn-danger">Cancel</button>
                 </Link>
